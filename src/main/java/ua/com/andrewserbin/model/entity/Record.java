@@ -31,14 +31,47 @@ public class Record {
         return new Record().new Builder();
     }
 
-    class Builder {
+    public class Builder {
 
-        public Builder setName(String name, String surname, String patronymic, String truncatedName) {
-            Record.this.fullName = new FullName(name, surname, patronymic, truncatedName);
+        public Builder setName(FullName fullName) {
+            Record.this.fullName = fullName;
             return this;
         }
 
-        // TODO Another builder setters
+        public Builder setNick(String nick) {
+            Record.this.nick = nick;
+            return this;
+        }
+
+        public Builder setDescription(String description) {
+            Record.this.description = description;
+            return this;
+        }
+
+        public Builder setGroup(Group group) {
+            Record.this.group = group;
+            return this;
+        }
+
+        public Builder setTelephone(Telephone telephone) {
+            Record.this.telephone = telephone;
+            return this;
+        }
+
+        public Builder setSkype(String skype) {
+            Record.this.skype = skype;
+            return this;
+        }
+
+        public Builder setEmail(String email) {
+            Record.this.email = email;
+            return this;
+        }
+
+        public Builder setAddress(Address address) {
+            Record.this.address = address;
+            return this;
+        }
 
         public Record build() {
             return Record.this;
