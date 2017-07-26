@@ -75,8 +75,15 @@ public class InputNoteBookController {
     }
 
     private String truncateName(String surname, String name) {
+        String space = new String(" ");
+        String point = new String(".");
 
-        return surname + " " + name.charAt(0) + ".";
+        return new StringBuilder()
+                .append(surname)
+                .append(space)
+                .append(name.charAt(0))
+                .append(point)
+                .toString();
     }
 
     private void inputNick() {
@@ -145,6 +152,18 @@ public class InputNoteBookController {
 
     private String createFullAddress(String index, String city, String street,
                                      String houseNumber, String apartmentNumber) {
-        return index + ", " + city + ", " + street + ", house: " + houseNumber + ", apartment: " + apartmentNumber;
+        String comma = new String(", ");
+
+        return new StringBuilder()
+                .append(index)
+                .append(comma)
+                .append(city)
+                .append(comma)
+                .append(street)
+                .append(", house: ")
+                .append(houseNumber)
+                .append(", apartment: ")
+                .append(apartmentNumber)
+                .toString();
     }
 }
