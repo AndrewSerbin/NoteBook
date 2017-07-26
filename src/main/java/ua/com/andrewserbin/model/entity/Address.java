@@ -17,7 +17,8 @@ public class Address {
 
     private String fullAddress;
 
-    public Address(String index, String city, String street, String houseNumber, String apartmentNumber, String fullAddress) {
+    public Address(String index, String city, String street, String houseNumber,
+                   String apartmentNumber, String fullAddress) {
         this.index = index;
         this.city = city;
         this.street = street;
