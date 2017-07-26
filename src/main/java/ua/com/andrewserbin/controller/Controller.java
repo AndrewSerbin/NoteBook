@@ -17,6 +17,9 @@ public class Controller {
     }
 
     public void processUser() {
+        ScannerRegexController scannerRegexController = new ScannerRegexController(view);
+        InputNoteBookController inputNoteBookController = new InputNoteBookController(scannerRegexController);
 
+        model.addRecord(inputNoteBookController.inputRecord());
     }
 }
