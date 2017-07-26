@@ -7,6 +7,8 @@ import java.util.Date;
  */
 public class Record {
 
+    private FullName fullName;
+
     private String nick;
 
     private String description;
@@ -24,4 +26,23 @@ public class Record {
     private Date dateOfEntryInNoteBook;
 
     private Date dateOfLastChanging;
+
+    public static Builder getBuilder() {
+        return new Record().new Builder();
+    }
+
+    class Builder {
+
+        public Builder setName(String name, String surname, String patronymic, String truncatedName) {
+            Record.this.fullName = new FullName(name, surname, patronymic, truncatedName);
+            return this;
+        }
+
+        // TODO Another builder setters
+
+        public Record build() {
+            return Record.this;
+        }
+
+    }
 }
