@@ -8,4 +8,12 @@ import java.util.ArrayList;
 public class NoteBook {
 
     private ArrayList<Record> records;
+
+    public NoteBook() {
+        records = new ArrayList<>();
+    }
+
+    public void add(Record record) {
+        records.add(record);
+    }
 }

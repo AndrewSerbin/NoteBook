@@ -16,4 +16,13 @@ public class Address {
     private String apartmentNumber;
 
     private String fullAddress;
+
+    public Address(String index, String city, String street, String houseNumber, String apartmentNumber, String fullAddress) {
+        this.index = index;
+        this.city = city;
+        this.street = street;
+        this.houseNumber = houseNumber;
+        this.apartmentNumber = apartmentNumber;
+        this.fullAddress = fullAddress;
+    }
 }
