@@ -60,14 +60,12 @@ public class InputNoteBookController {
     }
 
     private void inputFullName() {
-        Pattern pattern = Pattern.compile(RegexConstants.REGEX_NAME);
-
         String surname = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_SURNAME, pattern);
+                ViewConstants.INPUT_SURNAME, RegexConstants.REGEX_NAME);
         String name = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_NAME, pattern);
+                ViewConstants.INPUT_NAME, RegexConstants.REGEX_NAME);
         String patronymic = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_PATRONYMIC, pattern);
+                ViewConstants.INPUT_PATRONYMIC, RegexConstants.REGEX_NAME);
 
         String truncatedName = truncateName(surname, name);
 
@@ -87,63 +85,47 @@ public class InputNoteBookController {
     }
 
     private void inputNick() {
-        Pattern pattern = Pattern.compile(RegexConstants.REGEX_NICK);
-
         nick = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_NICK, pattern);
+                ViewConstants.INPUT_NICK, RegexConstants.REGEX_NICK);
     }
 
     private void inputDescription() {
-        Pattern pattern = Pattern.compile(RegexConstants.REGEX_DESCRIPTION);
-
         description = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_DESCRIPTION, pattern);
+                ViewConstants.INPUT_DESCRIPTION, RegexConstants.REGEX_DESCRIPTION);
     }
 
     private void inputTelephone() {
-        Pattern pattern = Pattern.compile(RegexConstants.REGEX_TELEPHONE);
-
         String mainTelephone = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_MAIN_TELEPHONE, pattern);
+                ViewConstants.INPUT_MAIN_TELEPHONE, RegexConstants.REGEX_TELEPHONE);
         String spareTelephone = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_SPARE_TELEPHONE, pattern);
+                ViewConstants.INPUT_SPARE_TELEPHONE, RegexConstants.REGEX_TELEPHONE);
 
         telephone = new Telephone(mainTelephone, spareTelephone);
     }
 
     private void inputEmail() {
-        Pattern pattern = Pattern.compile(RegexConstants.REGEX_EMAIL);
-
         email = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_EMAIL, pattern);
+                ViewConstants.INPUT_EMAIL, RegexConstants.REGEX_EMAIL);
     }
 
     private void inputSkype() {
-        Pattern pattern = Pattern.compile(RegexConstants.REGEX_SKYPE);
-
         nick = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_SKYPE, pattern);
+                ViewConstants.INPUT_SKYPE, RegexConstants.REGEX_SKYPE);
     }
 
     private void inputAddress() {
-        Pattern pattern = Pattern.compile(RegexConstants.REGEX_INDEX);
-
         String index = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_INDEX, pattern);
-
-        pattern = Pattern.compile(RegexConstants.REGEX_CITY_AND_STREET);
+                ViewConstants.INPUT_INDEX, RegexConstants.REGEX_INDEX);
 
         String city = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_CITY, pattern);
+                ViewConstants.INPUT_CITY, RegexConstants.REGEX_CITY_AND_STREET);
         String street = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_STREET, pattern);
-
-        pattern = Pattern.compile(RegexConstants.REGEX_HOUSE_AND_APARTMENT_NUMBER);
+                ViewConstants.INPUT_STREET, RegexConstants.REGEX_CITY_AND_STREET);
 
         String houseNumber = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_HOUSE_NUMBER, pattern);
+                ViewConstants.INPUT_HOUSE_NUMBER, RegexConstants.REGEX_HOUSE_AND_APARTMENT_NUMBER);
         String apartmentNumber = scannerRegexController.inputStringInAccordanceWithRegex(sc,
-                ViewConstants.INPUT_APARTMENT_NUMBER, pattern);
+                ViewConstants.INPUT_APARTMENT_NUMBER, RegexConstants.REGEX_HOUSE_AND_APARTMENT_NUMBER);
 
         String fullAddress = createFullAddress(index, city, street, houseNumber, apartmentNumber);
 
@@ -160,9 +142,11 @@ public class InputNoteBookController {
                 .append(city)
                 .append(comma)
                 .append(street)
-                .append(", house: ")
+                .append(comma)
+                .append("house: ")
                 .append(houseNumber)
-                .append(", apartment: ")
+                .append(comma)
+                .append("apartment: ")
                 .append(apartmentNumber)
                 .toString();
     }

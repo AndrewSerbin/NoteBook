@@ -10,16 +10,16 @@ import java.util.regex.Pattern;
  */
 public class ScannerRegexController {
 
-    View view;
+    private View view;
 
     public ScannerRegexController(View view) {
         this.view = view;
     }
 
-    public String inputStringInAccordanceWithRegex(Scanner sc, String outputMessage, Pattern pattern) {
+    public String inputStringInAccordanceWithRegex(Scanner sc, String outputMessage, String regex) {
         view.printMessage(outputMessage);
 
-        while (!sc.hasNext(pattern)) {
+        while (!sc.hasNext(regex)) {
             view.printMessage(ViewConstants.WRONG_INPUT + outputMessage);
 
             sc.next();
