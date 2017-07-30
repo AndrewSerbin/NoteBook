@@ -15,12 +15,12 @@ public enum RecordExample {
             "12345", "Kyiv", "Grygorenka", "5", "123", "12345, Kyiv, Grygorenka, house:5, apartment:123"),
     RECORD_TWO(Group.FAMILY,
             "Qwerty", "Andrew", "Ivanovich", "Qwerty A.",
-                    "John123",
-                    "Text.",
-                    "0937654321", "0931234567",
-                    "john@gmail.com",
-                    "john12",
-                    "12345", "Kyiv", "Grygorenka", "1", "4", "12345, Kyiv, Grygorenka, house:1, apartment:4");
+            "John123",
+            "Text.",
+            "0937654321", "0931234567",
+            "john@gmail.com",
+            "john12",
+            "12345", "Kyiv", "Grygorenka", "1", "4", "12345, Kyiv, Grygorenka, house:1, apartment:4");
 
 
     private FullName fullName;
