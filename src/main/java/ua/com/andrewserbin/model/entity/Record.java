@@ -76,6 +76,85 @@ public class Record {
         public Record build() {
             return Record.this;
         }
+    }
 
+    public FullName getFullName() {
+        return fullName;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public Telephone getTelephone() {
+        return telephone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSkype() {
+        return skype;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public Date getDateOfEntryInNoteBook() {
+        return dateOfEntryInNoteBook;
+    }
+
+    public Date getDateOfLastChanging() {
+        return dateOfLastChanging;
+    }
+
+    public void setFullName(FullName fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public void setTelephone(Telephone telephone) {
+        this.telephone = telephone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSkype(String skype) {
+        this.skype = skype;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setDateOfEntryInNoteBook(Date dateOfEntryInNoteBook) {
+        this.dateOfEntryInNoteBook = dateOfEntryInNoteBook;
+    }
+
+    public void setDateOfLastChanging(Date dateOfLastChanging) {
+        this.dateOfLastChanging = dateOfLastChanging;
     }
 }

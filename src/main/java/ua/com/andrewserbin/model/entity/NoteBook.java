@@ -1,5 +1,6 @@
 package ua.com.andrewserbin.model.entity;
 
+import ua.com.andrewserbin.model.util.EmailAlreadyExistsException;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +14,18 @@ public class NoteBook {
         records = new ArrayList<>();
     }
 
-    public void add(Record record) {
-        records.add(record);
+    public void add(Record inputedRecord) throws EmailAlreadyExistsException {
+        checkEmailForUniq(inputedRecord);
+
+        records.add(inputedRecord);
+    }
+
+    private void checkEmailForUniq(Record inputedRecord) throws EmailAlreadyExistsException {
+        for (Record r :
+                records) {
+            if (r.getEmail().equalsIgnoreCase(inputedRecord.getEmail())) {
+                throw new EmailAlreadyExistsException(inputedRecord);
+            }
+        }
     }
 }

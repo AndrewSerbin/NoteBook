@@ -1,6 +1,8 @@
 package ua.com.andrewserbin.controller;
 
 import ua.com.andrewserbin.model.Model;
+import ua.com.andrewserbin.model.entity.Record;
+import ua.com.andrewserbin.model.util.EmailAlreadyExistsException;
 import ua.com.andrewserbin.view.View;
 
 /**
@@ -20,6 +22,23 @@ public class Controller {
         ScannerRegexController scannerRegexController = new ScannerRegexController(view);
         InputNoteBookController inputNoteBookController = new InputNoteBookController(scannerRegexController);
 
-        model.addRecord(inputNoteBookController.inputRecord());
+        Record record = inputNoteBookController.inputRecord();
+
+        addRecord(inputNoteBookController, record);
+    }
+
+    void addRecord(InputNoteBookController inputNoteBookController, Record record) {
+        boolean transactionIncompleted = true;
+        do {
+            try {
+                model.addRecord(record);
+
+                transactionIncompleted = false;
+            } catch (EmailAlreadyExistsException ex) {
+                record = ex.getRecord();
+                inputNoteBookController.inputEmail();
+                record.setEmail(inputNoteBookController.getEmail());
+            }
+        } while (transactionIncompleted);
     }
 }
