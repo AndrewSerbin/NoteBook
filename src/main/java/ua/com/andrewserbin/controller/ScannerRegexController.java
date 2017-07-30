@@ -15,6 +15,14 @@ public class ScannerRegexController {
         this.view = view;
     }
 
+    /**
+     * Gets data from user.
+     * If the entered data is not verified, they will be re-entered.
+     * @param sc
+     * @param inputProperty
+     * @param regex
+     * @return inputted data
+     */
     public String inputStringInAccordanceWithRegex(Scanner sc, String inputProperty, String regex) {
         String inputMessage = getMessageFromBundle(inputProperty);
 

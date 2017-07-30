@@ -21,6 +21,11 @@ public class NoteBook {
         records.add(inputedRecord);
     }
 
+    /**
+     * Checks for the existence of the entered e-mail address in the record array.
+     * @param inputedRecord
+     * @throws EmailAlreadyExistsException
+     */
     void checkEmailForUniq(Record inputedRecord) throws EmailAlreadyExistsException {
         for (Record r :
                 records) {
@@ -28,5 +33,13 @@ public class NoteBook {
                 throw new EmailAlreadyExistsException(inputedRecord);
             }
         }
+    }
+
+    public ArrayList<Record> getRecords() {
+        return records;
+    }
+
+    public void setRecords(ArrayList<Record> records) {
+        this.records = records;
     }
 }

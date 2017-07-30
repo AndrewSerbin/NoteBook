@@ -37,6 +37,10 @@ public class InputNoteBookController {
         sc = new Scanner(System.in);
     }
 
+    /**
+     * Gets data from user. Creates record with inputted data.
+     * @return record
+     */
     public Record inputRecord() {
         inputGroup();
         inputFullName();
@@ -53,17 +57,18 @@ public class InputNoteBookController {
     Record buildRecord() {
         return new Record().getBuilder()
                     .setGroup(group)
-                    .setName(fullName)
+                    .setFullName(fullName)
                     .setNick(nick)
                     .setDescription(description)
                     .setTelephone(telephone)
                     .setEmail(email)
                     .setSkype(skype)
                     .setAddress(address)
+                    .setDateOfLastChanging(dateOfLastChanging)
                     .build();
     }
 
-    private void inputGroup() {
+    void inputGroup() {
         group = Group.valueOf(scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_GROUP, RegexConstants.REGEX_GROUP).toUpperCase());
     }

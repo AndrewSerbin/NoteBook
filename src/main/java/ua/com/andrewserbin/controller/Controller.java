@@ -18,6 +18,9 @@ public class Controller {
         this.view = view;
     }
 
+    /**
+     * Gets data from user. Creates record and adds it in model.
+     */
     public void processUser() {
         ScannerRegexController scannerRegexController = new ScannerRegexController(view);
         InputNoteBookController inputNoteBookController = new InputNoteBookController(scannerRegexController);
@@ -27,6 +30,12 @@ public class Controller {
         addRecord(inputNoteBookController, record);
     }
 
+    /**
+     * Checks inputed record with record thar are storing in model.
+     * If the model contains an identical email address, it will re-enter.
+     * @param inputNoteBookController
+     * @param record
+     */
     void addRecord(InputNoteBookController inputNoteBookController, Record record) {
         boolean transactionIncompleted = true;
         do {
