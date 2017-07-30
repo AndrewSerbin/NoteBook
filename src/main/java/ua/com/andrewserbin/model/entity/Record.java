@@ -78,6 +78,10 @@ public class Record {
         }
     }
 
+    public void refreshDateOfEntryInNoteBook() {
+        dateOfEntryInNoteBook = new Date();
+    }
+
     public FullName getFullName() {
         return fullName;
     }
