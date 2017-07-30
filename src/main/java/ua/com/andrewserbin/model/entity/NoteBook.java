@@ -17,10 +17,11 @@ public class NoteBook {
     public void add(Record inputedRecord) throws EmailAlreadyExistsException {
         checkEmailForUniq(inputedRecord);
 
+        inputedRecord.refreshDateOfEntryInNoteBook();
         records.add(inputedRecord);
     }
 
-    private void checkEmailForUniq(Record inputedRecord) throws EmailAlreadyExistsException {
+    void checkEmailForUniq(Record inputedRecord) throws EmailAlreadyExistsException {
         for (Record r :
                 records) {
             if (r.getEmail().equalsIgnoreCase(inputedRecord.getEmail())) {
