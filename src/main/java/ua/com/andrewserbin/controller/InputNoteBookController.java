@@ -41,6 +41,7 @@ public class InputNoteBookController {
     }
 
     public Record inputRecord() {
+        inputGroup();
         inputFullName();
         inputNick();
         inputDescription();
@@ -64,6 +65,11 @@ public class InputNoteBookController {
                     .setSkype(skype)
                     .setAddress(address)
                     .build();
+    }
+
+    private void inputGroup() {
+        Group group = Group.valueOf(scannerRegexController.inputStringInAccordanceWithRegex(sc,
+                ViewConstants.INPUT_GROUP, RegexConstants.REGEX_GROUP).toUpperCase());
     }
 
     void inputFullName() {

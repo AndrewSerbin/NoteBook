@@ -5,6 +5,8 @@ package ua.com.andrewserbin.controller;
  */
 public interface RegexConstants {
 
+    String REGEX_GROUP = "all|friends|colleagues|family";
+
     String REGEX_NAME = "[A-Za-z]{2,30}";
 
     String REGEX_NICK = "[A-Za-z0-9]{1,30}";
