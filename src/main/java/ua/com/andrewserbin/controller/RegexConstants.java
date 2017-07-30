@@ -15,7 +15,7 @@ public interface RegexConstants {
 
     String REGEX_EMAIL = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$";
 
-    String REGEX_SKYPE = "[a-zA-Z][a-zA-z0-9\\\\.,\\\\-_]{5,30}";
+    String REGEX_SKYPE = "[a-zA-Z][a-zA-z0-9]\\.,\\-_]{5,30}";
     
     String REGEX_INDEX = "[0-9]{5}";
 
