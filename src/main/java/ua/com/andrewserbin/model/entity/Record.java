@@ -33,7 +33,7 @@ public class Record {
 
     public class Builder {
 
-        public Builder setName(FullName fullName) {
+        public Builder setFullName(FullName fullName) {
             Record.this.fullName = fullName;
             return this;
         }
@@ -70,6 +70,11 @@ public class Record {
 
         public Builder setAddress(Address address) {
             Record.this.address = address;
+            return this;
+        }
+
+        public Builder setDateOfLastChanging(Date dateOfLastChanging) {
+            Record.this.dateOfLastChanging = dateOfLastChanging;
             return this;
         }
 
