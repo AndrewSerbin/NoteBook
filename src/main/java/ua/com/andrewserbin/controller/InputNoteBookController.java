@@ -2,11 +2,8 @@ package ua.com.andrewserbin.controller;
 
 import ua.com.andrewserbin.model.entity.*;
 import ua.com.andrewserbin.view.ViewConstants;
-
 import java.util.Date;
 import java.util.Scanner;
-import java.util.Timer;
-import java.util.regex.Pattern;
 
 /**
  * Created by layer on 26.07.2017.
@@ -50,13 +47,12 @@ public class InputNoteBookController {
         inputSkype();
         inputAddress();
 
-        //TODO Add date of last entry in note book. Add group.
-
         return buildRecord();
     }
 
     Record buildRecord() {
         return new Record().getBuilder()
+                    .setGroup(group)
                     .setName(fullName)
                     .setNick(nick)
                     .setDescription(description)
@@ -68,7 +64,7 @@ public class InputNoteBookController {
     }
 
     private void inputGroup() {
-        Group group = Group.valueOf(scannerRegexController.inputStringInAccordanceWithRegex(sc,
+        group = Group.valueOf(scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_GROUP, RegexConstants.REGEX_GROUP).toUpperCase());
     }
 
@@ -132,7 +128,7 @@ public class InputNoteBookController {
     }
 
     void inputSkype() {
-        nick = scannerRegexController.inputStringInAccordanceWithRegex(sc,
+        skype = scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_SKYPE, RegexConstants.REGEX_SKYPE);
 
         refreshDateOfLastChanging();
