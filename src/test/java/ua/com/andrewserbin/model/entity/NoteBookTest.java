@@ -19,7 +19,7 @@ public class NoteBookTest {
 
         record = new Record().getBuilder()
                 .setGroup(RecordExample.RECORD_ONE.getGroup())
-                .setName(RecordExample.RECORD_ONE.getFullName())
+                .setFullName(RecordExample.RECORD_ONE.getFullName())
                 .setNick(RecordExample.RECORD_ONE.getNick())
                 .setDescription(RecordExample.RECORD_ONE.getDescription())
                 .setTelephone(RecordExample.RECORD_ONE.getTelephone())
