@@ -13,4 +13,20 @@ public class Telephone {
         this.mainTelephone = mainTelephone;
         this.spareTelephone = spareTelephone;
     }
+
+    public String getMainTelephone() {
+        return mainTelephone;
+    }
+
+    public void setMainTelephone(String mainTelephone) {
+        this.mainTelephone = mainTelephone;
+    }
+
+    public String getSpareTelephone() {
+        return spareTelephone;
+    }
+
+    public void setSpareTelephone(String spareTelephone) {
+        this.spareTelephone = spareTelephone;
+    }
 }
