@@ -3,6 +3,9 @@ package ua.com.andrewserbin.controller;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Created by layer on 30.07.2017.
+ */
 public class InputNoteBookControllerTest {
 
     @Test
