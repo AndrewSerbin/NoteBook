@@ -38,6 +38,7 @@ public class Controller {
                 record = ex.getRecord();
                 inputNoteBookController.inputEmail();
                 record.setEmail(inputNoteBookController.getEmail());
+                record.setDateOfLastChanging(inputNoteBookController.getDateOfLastChanging());
             }
         } while (transactionIncompleted);
     }
