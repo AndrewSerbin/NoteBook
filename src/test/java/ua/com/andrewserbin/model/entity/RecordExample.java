@@ -1,6 +1,7 @@
 package ua.com.andrewserbin.model.entity;
 
 /**
+ * Data for testing.
  * Created by layer on 30.07.2017.
  */
 public enum RecordExample {
@@ -11,7 +12,16 @@ public enum RecordExample {
             "0937654321", "0931234567",
             "john@gmail.com",
             "john12",
-            "12345", "Kyiv", "Grygorenka", "5", "123");
+            "12345", "Kyiv", "Grygorenka", "5", "123", "12345, Kyiv, Grygorenka, house:5, apartment:123"),
+    RECORD_TWO(Group.FAMILY,
+            "Qwerty", "Andrew", "Ivanovich", "Qwerty A.",
+                    "John123",
+                    "Text.",
+                    "0937654321", "0931234567",
+                    "john@gmail.com",
+                    "john12",
+                    "12345", "Kyiv", "Grygorenka", "1", "4", "12345, Kyiv, Grygorenka, house:1, apartment:4");
+
 
     private FullName fullName;
 
@@ -32,7 +42,7 @@ public enum RecordExample {
     RecordExample(Group group, String surname, String name, String patronymic, String truncatedName,
                   String nick, String description, String mainTelephone, String spareTelephone,
                   String email, String skype, String index, String city, String street, String houseNumber,
-                  String apartmentNumber) {
+                  String apartmentNumber, String fullAddress) {
         this.group = group;
         fullName = new FullName(surname, name, patronymic, truncatedName);
         this.nick = nick;
@@ -40,8 +50,7 @@ public enum RecordExample {
         telephone = new Telephone(mainTelephone, spareTelephone);
         this.email = email;
         this.skype = skype;
-        address = new Address(index, city, street, houseNumber, apartmentNumber,
-                index + city + street + houseNumber + apartmentNumber);
+        address = new Address(index, city, street, houseNumber, apartmentNumber, fullAddress);
     }
 
     public FullName getFullName() {
