@@ -37,18 +37,16 @@ public class Controller {
      * @param record
      */
     void addRecord(InputNoteBookController inputNoteBookController, Record record) {
-        boolean transactionIncompleted = true;
-        do {
+        while (true) {
             try {
                 model.addRecord(record);
-
-                transactionIncompleted = false;
+                break;
             } catch (EmailAlreadyExistsException ex) {
                 record = ex.getRecord();
                 inputNoteBookController.inputEmail();
                 record.setEmail(inputNoteBookController.getEmail());
                 record.setDateOfLastChanging(inputNoteBookController.getDateOfLastChanging());
             }
-        } while (transactionIncompleted);
+        }
     }
 }
