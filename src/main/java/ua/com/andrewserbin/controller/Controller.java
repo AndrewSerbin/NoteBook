@@ -43,9 +43,8 @@ public class Controller {
                 break;
             } catch (EmailAlreadyExistsException ex) {
                 record = ex.getRecord();
-                inputNoteBookController.inputEmail();
-                record.setEmail(inputNoteBookController.getEmail());
-                record.setDateOfLastChanging(inputNoteBookController.getDateOfLastChanging());
+                record.setEmail(inputNoteBookController.inputEmail());
+                record.setDateOfLastChanging(inputNoteBookController.refreshDateOfLastChanging());
             }
         }
     }

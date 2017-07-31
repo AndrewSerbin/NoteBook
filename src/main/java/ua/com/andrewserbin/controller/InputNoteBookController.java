@@ -42,14 +42,15 @@ public class InputNoteBookController {
      * @return record
      */
     public Record inputRecord() {
-        inputGroup();
-        inputFullName();
-        inputNick();
-        inputDescription();
-        inputTelephone();
-        inputEmail();
-        inputSkype();
-        inputAddress();
+        group = inputGroup();
+        fullName = inputFullName();
+        nick = inputNick();
+        description = inputDescription();
+        telephone = inputTelephone();
+        email = inputEmail();
+        skype = inputSkype();
+        address = inputAddress();
+        dateOfLastChanging = refreshDateOfLastChanging();
 
         return buildRecord();
     }
@@ -68,12 +69,12 @@ public class InputNoteBookController {
                     .build();
     }
 
-    void inputGroup() {
-        group = Group.valueOf(scannerRegexController.inputStringInAccordanceWithRegex(sc,
+    Group inputGroup() {
+        return Group.valueOf(scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_GROUP, RegexConstants.REGEX_GROUP).toUpperCase());
     }
 
-    void inputFullName() {
+    FullName inputFullName() {
         String surname = scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_SURNAME, RegexConstants.REGEX_NAME);
         String name = scannerRegexController.inputStringInAccordanceWithRegex(sc,
@@ -83,9 +84,7 @@ public class InputNoteBookController {
 
         String truncatedName = truncateName(surname, name);
 
-        fullName = new FullName(surname, name, patronymic, truncatedName);
-
-        refreshDateOfLastChanging();
+        return new FullName(surname, name, patronymic, truncatedName);
     }
 
     String truncateName(String surname, String name) {
@@ -100,46 +99,36 @@ public class InputNoteBookController {
                 .toString();
     }
 
-    void inputNick() {
-        nick = scannerRegexController.inputStringInAccordanceWithRegex(sc,
+    String inputNick() {
+        return scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_NICK, RegexConstants.REGEX_NICK);
-
-        refreshDateOfLastChanging();
     }
 
-    void inputDescription() {
-        description = scannerRegexController.inputStringInAccordanceWithRegex(sc,
+    String inputDescription() {
+        return scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_DESCRIPTION, RegexConstants.REGEX_DESCRIPTION);
-
-        refreshDateOfLastChanging();
     }
 
-    void inputTelephone() {
+    Telephone inputTelephone() {
         String mainTelephone = scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_MAIN_TELEPHONE, RegexConstants.REGEX_TELEPHONE);
         String spareTelephone = scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_SPARE_TELEPHONE, RegexConstants.REGEX_TELEPHONE);
 
-        telephone = new Telephone(mainTelephone, spareTelephone);
-
-        refreshDateOfLastChanging();
+        return new Telephone(mainTelephone, spareTelephone);
     }
 
-    void inputEmail() {
-        email = scannerRegexController.inputStringInAccordanceWithRegex(sc,
+    String inputEmail() {
+        return scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_EMAIL, RegexConstants.REGEX_EMAIL);
-
-        refreshDateOfLastChanging();
     }
 
-    void inputSkype() {
-        skype = scannerRegexController.inputStringInAccordanceWithRegex(sc,
+    String inputSkype() {
+        return scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_SKYPE, RegexConstants.REGEX_SKYPE);
-
-        refreshDateOfLastChanging();
     }
 
-    void inputAddress() {
+    Address inputAddress() {
         String index = scannerRegexController.inputStringInAccordanceWithRegex(sc,
                 ViewConstants.INPUT_INDEX, RegexConstants.REGEX_INDEX);
 
@@ -155,9 +144,7 @@ public class InputNoteBookController {
 
         String fullAddress = createFullAddress(index, city, street, houseNumber, apartmentNumber);
 
-        address = new Address(index, city, street, houseNumber, apartmentNumber, fullAddress);
-
-        refreshDateOfLastChanging();
+        return new Address(index, city, street, houseNumber, apartmentNumber, fullAddress);
     }
 
     String createFullAddress(String index, String city, String street,
@@ -179,8 +166,8 @@ public class InputNoteBookController {
                 .toString();
     }
 
-    void refreshDateOfLastChanging() {
-        dateOfLastChanging = new Date();
+    Date refreshDateOfLastChanging() {
+        return new Date();
     }
 
     public FullName getFullName() {
